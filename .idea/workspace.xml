@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HomeManager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/start/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/boot/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/boot/axios.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="23ZEZJ2BAcwvgw5OEnW3x8UNTd1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="Z:\xampp\htdocs\adonis-quasar-auth\api\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="" />
+      <created>1641933262605</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1641933262605</updated>
+      <workItem from="1641933263769" duration="8743000" />
+      <workItem from="1642001925412" duration="7339000" />
+      <workItem from="1642048463398" duration="28439000" />
+      <workItem from="1642170789505" duration="5087000" />
+      <workItem from="1642222845069" duration="34000" />
+      <workItem from="1642222897306" duration="3428000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

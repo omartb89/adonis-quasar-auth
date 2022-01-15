@@ -21,7 +21,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() => {
-  Route.get('/index', 'AuthController.index')
+  Route.get('/', 'AuthController.index')
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
   Route.get('/pelucha', async () => {
