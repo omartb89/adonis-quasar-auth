@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/HomeManager.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/cors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/cors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/start/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/quasar.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/quasar.conf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/boot/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/boot/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,11 @@
       <workItem from="1642048463398" duration="28439000" />
       <workItem from="1642170789505" duration="5087000" />
       <workItem from="1642222845069" duration="34000" />
-      <workItem from="1642222897306" duration="3428000" />
+      <workItem from="1642222897306" duration="4120000" />
+      <workItem from="1642249915294" duration="6311000" />
+      <workItem from="1642277458894" duration="6557000" />
+      <workItem from="1642293452720" duration="5595000" />
+      <workItem from="1642415010558" duration="22871000" />
     </task>
     <servers />
   </component>

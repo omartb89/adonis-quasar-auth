@@ -24,12 +24,12 @@ Route.group(() => {
   Route.get('/', 'AuthController.index')
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
-  Route.get('/pelucha', async () => {
+  Route.get('/secured', async () => {
     return {
-      id: 28,
-      account: 'Pelucha',
-      holder: 'Te amo',
-      eres: 'Un mango'
+      id: 1,
+      account: 'CodeThirsty',
+      type: 'secured',
+      gender: true
     }
   }).middleware('auth')
 }).prefix('api')
