@@ -31,4 +31,12 @@ export default class AuthController {
       return response.badRequest('Invalid credentials')
     }
   }
+  public async logout ({ auth }: HttpContextContract) {
+    const user = auth.user
+    await auth.use('api').revoke()
+    return {
+      user: user,
+      revoked: true
+    }
+  }
 }

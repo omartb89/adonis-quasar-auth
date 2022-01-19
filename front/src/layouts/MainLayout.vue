@@ -15,7 +15,14 @@
           Quasar App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>
+          Quasar v{{ $q.version }}
+          <q-btn
+            flat
+            icon="logout"
+            @click="logout"
+          />
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -94,6 +101,9 @@ const linksList = [
 ]
 
 import { defineComponent, ref } from 'vue'
+import { useHerald } from 'src/resources/useHerald'
+import { api } from 'boot/axios'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -103,13 +113,21 @@ export default defineComponent({
   },
 
   setup () {
+    const router = useRouter()
     const leftDrawerOpen = ref(false)
-
+    const { positive } = useHerald()
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
+      },
+      logout () {
+        api.get('/logout')
+          .then((result) => {
+            positive(result.data.user.email, 'logout')
+            router.replace('/login')
+          })
       }
     }
   }

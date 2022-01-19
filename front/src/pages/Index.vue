@@ -1,17 +1,23 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+  <div>
+    <q-btn
+      label="Test"
+      flat
+      @click="positive('Omar', 'login')"
+    />
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-
+import { useHerald } from '../resources/useHerald'
 export default defineComponent({
-  name: 'PageIndex'
+  name: 'PageIndex',
+  setup () {
+    const { positive } = useHerald()
+    return {
+      positive
+    }
+  }
 })
 </script>

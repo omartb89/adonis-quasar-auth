@@ -24,6 +24,7 @@ Route.group(() => {
   Route.get('/', 'AuthController.index')
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
+  Route.get('/logout', 'AuthController.logout').middleware('auth')
   Route.get('/secured', async () => {
     return {
       id: 1,

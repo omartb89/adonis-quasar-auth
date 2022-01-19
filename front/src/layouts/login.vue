@@ -3,8 +3,13 @@
     <q-btn no-caps flat label="Register" class="text-blue absolute-top-right" @click="testAuth"></q-btn>
     <q-card class="absolute-center" style="width: 450px">
       <q-form greedy @submit="login">
-        <q-card-section align="center">
-          Adonis && Quasar Auth
+        <q-card-section>
+          <div class="row justify-center items-center">
+            <q-avatar size="sm"><q-img src="../assets/adonisjs-original.svg"></q-img></q-avatar>
+            <span class="text-h6">donis & </span>
+            <q-img class="q-mx-sm" fit="contain" width="30%" src="../assets/logotype.svg"></q-img>
+            <q-avatar size="sm"><q-img src="../assets/logo.svg"></q-img></q-avatar>
+          </div>
         </q-card-section>
         <q-card-section>
           <q-input
@@ -22,7 +27,7 @@
           </q-input>
           <q-input
             class="q-mx-md"
-            :type="visibility ? 'text' : 'password'"
+            :type="visibility ? 'password' : 'text'"
             v-model="formData.password"
             :lazy-rules="true"
             :rules="[
@@ -33,7 +38,7 @@
               <q-icon name="vpn_key"></q-icon>
             </template>
             <template v-slot:append>
-              <q-btn :ripple="false" dense flat :icon="visibility ? 'visibility_off' : 'visibility'" @click="visibility = !visibility"></q-btn>
+              <q-btn :ripple="false" dense flat :icon="visibility ? 'visibility' : 'visibility_off'" @click="visibility = !visibility"></q-btn>
             </template>
           </q-input>
           <div class="row justify-center">
@@ -47,13 +52,15 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
+import { useHerald } from 'src/resources/useHerald'
 import { api } from 'boot/axios'
-import { Notify, SessionStorage } from 'quasar'
+import { SessionStorage } from 'quasar'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Login',
   setup () {
+    const { positive } = useHerald()
     const formData = ref({
       email: '',
       password: ''
@@ -75,14 +82,10 @@ export default defineComponent({
               email: formData.value.email,
               token: data.token
             })
-            SessionStorage.set('Authenticated', true)
+            SessionStorage.set('isAuthenticated', true)
             router.replace('/')
           })
-        Notify.create({
-          /* message: `The email is ${email.value} and its password is ${password.value}`, */
-          message: `The email is ${formData.value.email} and its password is ${formData.value.password}`,
-          type: 'positive'
-        })
+        positive(formData.value.email, 'login')
       },
       testAuth () {
         api.get('/secured')
