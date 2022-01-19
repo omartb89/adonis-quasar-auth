@@ -3,7 +3,7 @@
     <q-btn
       label="Test"
       flat
-      @click="positive('Omar', 'login')"
+      @click="positive('agency', 'delete')"
     />
   </div>
 </template>

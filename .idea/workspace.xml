@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/front/src/resources/useHerald.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/start/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layouts/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/resources/useHerald.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/resources/useHerald.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +61,7 @@
       <workItem from="1642415010558" duration="22871000" />
       <workItem from="1642465662800" duration="11129000" />
       <workItem from="1642519382476" duration="26924000" />
+      <workItem from="1642562023614" duration="9952000" />
     </task>
     <servers />
   </component>
