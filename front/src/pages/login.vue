@@ -86,13 +86,17 @@ export default defineComponent({
             positive('user', 'login', formData.value.email)
           })
           .catch((error) => {
-            negative(error.response.data, error.response.status, true)
+            negative(error.response.data, 'warning', error.response.status)
           })
       },
       testAuth () {
         api.get('/secured')
           .then((result) => {
             console.log(result)
+          }).catch((error) => {
+            error.response.data.errors.forEach((element) => {
+              negative(element.message, 'error', error.response.status)
+            })
           })
       }
     }

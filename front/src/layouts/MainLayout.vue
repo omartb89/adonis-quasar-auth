@@ -47,7 +47,9 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <q-page padding>
+        <router-view />
+      </q-page>
     </q-page-container>
   </q-layout>
 </template>
@@ -104,6 +106,7 @@ import { defineComponent, ref } from 'vue'
 import { useHerald } from 'src/resources/useHerald'
 import { api } from 'boot/axios'
 import { useRouter } from 'vue-router'
+import { SessionStorage } from 'quasar'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -115,7 +118,7 @@ export default defineComponent({
   setup () {
     const router = useRouter()
     const leftDrawerOpen = ref(false)
-    const { positive } = useHerald()
+    const { positive, negative } = useHerald()
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
@@ -127,6 +130,11 @@ export default defineComponent({
           .then((result) => {
             positive('user', 'logout', result.data.user.email)
             router.replace('/login')
+            SessionStorage.clear()
+          }).catch((error) => {
+            error.response.data.errors.forEach((element) => {
+              negative(element.message, 'error', error.response.status)
+            })
           })
       }
     }

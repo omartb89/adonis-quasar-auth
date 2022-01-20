@@ -21,6 +21,11 @@
       flat
       @click="positive('agency', 'upload', 'GET')"
     />
+    <q-btn
+      label="mail"
+      flat
+      @click="mailer('melissa.torres@get.tur.cu')"
+    />
   </div>
 </template>
 
@@ -30,9 +35,10 @@ import { useHerald } from '../resources/useHerald'
 export default defineComponent({
   name: 'PageIndex',
   setup () {
-    const { positive } = useHerald()
+    const { positive, mailer } = useHerald()
     return {
-      positive
+      positive,
+      mailer
     }
   }
 })

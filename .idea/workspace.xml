@@ -4,9 +4,10 @@
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layouts/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/layouts/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/resources/useHerald.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/resources/useHerald.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="23ZEZJ2BAcwvgw5OEnW3x8UNTd1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,6 +51,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="Z:\xampp\htdocs\adonis-quasar-auth\api\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\xampp\htdocs\adonis-quasar-auth\front\src\pages" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -82,6 +96,8 @@
       <workItem from="1642519382476" duration="26924000" />
       <workItem from="1642562023614" duration="9952000" />
       <workItem from="1643127822810" duration="11454000" />
+      <workItem from="1642584713069" duration="17825000" />
+      <workItem from="1642644661312" duration="1683000" />
     </task>
     <servers />
   </component>
