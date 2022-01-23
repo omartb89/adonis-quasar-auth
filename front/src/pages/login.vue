@@ -13,6 +13,7 @@
         </q-card-section>
         <q-card-section>
           <q-input
+            dense
             class="q-mx-md"
             type="text"
             v-model="formData.email"
@@ -22,10 +23,11 @@
             ]"
           >
             <template v-slot:prepend>
-              <q-icon name="person"></q-icon>
+              <q-icon dense name="person"></q-icon>
             </template>
           </q-input>
           <q-input
+            dense
             class="q-mx-md"
             :type="visibility ? 'password' : 'text'"
             v-model="formData.password"
@@ -35,14 +37,31 @@
             ]"
           >
             <template v-slot:prepend>
-              <q-icon name="vpn_key"></q-icon>
+              <q-icon dense name="vpn_key"></q-icon>
             </template>
             <template v-slot:append>
               <q-btn :ripple="false" dense flat :icon="visibility ? 'visibility' : 'visibility_off'" @click="visibility = !visibility"></q-btn>
             </template>
           </q-input>
+          <q-input
+            dense
+            v-if="register"
+            class="q-mx-md"
+            :type="visibility2 ? 'password' : 'text'"
+            v-model="formData.password_confirmation"
+          >
+            <template v-slot:prepend>
+              <q-icon name="vpn_key"></q-icon>
+            </template>
+            <template v-slot:append>
+              <q-btn :ripple="false" dense flat :icon="visibility2 ? 'visibility' : 'visibility_off'" @click="visibility2 = !visibility2"></q-btn>
+            </template>
+          </q-input>
           <div class="row justify-center">
-            <q-btn type="submit" class="bg-dark text-amber" >Accept</q-btn>
+            <q-checkbox dense label="Register" v-model="register"/>
+          </div>
+          <div class="row justify-center">
+            <q-btn no-caps type="submit" class="bg-dark text-amber q-mt-md" >Accept</q-btn>
           </div>
         </q-card-section>
       </q-form>
@@ -53,6 +72,7 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { useHerald } from 'src/resources/useHerald'
+import { useSentinel } from 'src/resources/useSentinel'
 import { api } from 'boot/axios'
 import { SessionStorage } from 'quasar'
 import { useRouter } from 'vue-router'
@@ -61,15 +81,22 @@ export default defineComponent({
   name: 'Login',
   setup () {
     const { positive, negative } = useHerald()
+    // eslint-disable-next-line no-unused-vars
+    const { securePassword } = useSentinel()
     const formData = ref({
       email: '',
-      password: ''
+      password: '',
+      password_confirmation: ''
     })
     const visibility = ref('false')
+    const visibility2 = ref('false')
+    const register = ref(false)
     const router = useRouter()
     return {
       formData,
+      register,
       visibility,
+      visibility2,
       login () {
         api.post('/login', {
           email: formData.value.email,

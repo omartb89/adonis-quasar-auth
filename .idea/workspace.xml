@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/front/src/resources/useSentinel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layouts/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/resources/useHerald.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/resources/useHerald.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/database/migrations/1641988287610_users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/database/migrations/1641988287610_users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +96,7 @@
       <workItem from="1643127822810" duration="11454000" />
       <workItem from="1642584713069" duration="17825000" />
       <workItem from="1642644661312" duration="1683000" />
+      <workItem from="1642734479895" duration="11417000" />
     </task>
     <servers />
   </component>
