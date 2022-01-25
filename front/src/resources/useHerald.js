@@ -12,44 +12,53 @@ export const useHerald = () => {
   const actionClass = ref({
     login: {
       message: 'logged in',
-      highlight: 'indigo-2',
-      color: 'primary',
-      iconColor: 'white'
+      highlight: 'blue-2',
+      color: 'grey-9',
+      iconColor: 'blue-4'
     },
     logout: {
       message: 'logged out',
-      highlight: 'indigo-2',
-      color: 'primary',
-      iconColor: 'white'
+      highlight: 'blue-2',
+      color: 'grey-9',
+      iconColor: 'blue-4'
     },
     add: {
       message: 'added',
-      highlight: 'indigo-2',
-      color: 'light-green',
-      iconColor: 'white'
+      highlight: 'light-green-2',
+      color: 'grey-9',
+      iconColor: 'light-green-6'
     },
     edit: {
       message: 'updated',
       highlight: 'amber-2',
-      color: 'positive',
-      iconColor: 'white'
+      color: 'grey-9',
+      iconColor: 'amber-6'
     },
     delete: {
       message: 'deleted',
-      highlight: 'text-indigo-2',
-      color: 'negative',
-      iconColor: 'white'
+      highlight: 'red-2',
+      color: 'grey-9',
+      iconColor: 'red-4'
     },
     download: {
       message: 'downloaded',
-      highlight: 'text-indigo-2'
+      highlight: 'deep-purple-2',
+      color: 'grey-9',
+      iconColor: 'deep-purple-4'
+    },
+    upload: {
+      message: 'uploaded',
+      highlight: 'deep-orange-2',
+      color: 'grey-9',
+      iconColor: 'deep-orange-4'
     }
   })
-  function positive (model, action) {
+  function positive (model, action, target) {
     Notify.create({
       message: `<span class="text-white">
-                ${action === 'login' || action === 'logout' ? 'The user ' : 'The '}
-                <span class="text-${actionClass.value[action].highlight} text-bold">${model}</span>
+                The
+                <span class="text-${actionClass.value[action].highlight} text-bold">${model} </span>
+                <span class="text-${actionClass.value[action].iconColor} text-bold">${target} </span>
                 ${action === 'login' || action === 'logout' ? 'has ' : 'has been '}
                 <span class="text-${actionClass.value[action].highlight} text-bold">${actionClass.value[action].message}</span>
                 </span>`,
@@ -60,7 +69,14 @@ export const useHerald = () => {
       html: true
     })
   }
+  function negative (message, code, error) {
+    Notify.create({
+      message: `${error ? 'Error:' : 'Warning'} ${message}, (${code})`,
+      type: error ? 'negative' : 'warning'
+    })
+  }
   return {
-    positive
+    positive,
+    negative
   }
 }

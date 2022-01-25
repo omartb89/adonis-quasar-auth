@@ -60,7 +60,7 @@ import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'Login',
   setup () {
-    const { positive } = useHerald()
+    const { positive, negative } = useHerald()
     const formData = ref({
       email: '',
       password: ''
@@ -77,15 +77,17 @@ export default defineComponent({
         })
           .then((response) => {
             const data = response.data
-            console.log(data)
             SessionStorage.set('user', {
               email: formData.value.email,
               token: data.token
             })
             SessionStorage.set('isAuthenticated', true)
             router.replace('/')
+            positive('user', 'login', formData.value.email)
           })
-        positive(formData.value.email, 'login')
+          .catch((error) => {
+            negative(error.response.data, error.response.status, true)
+          })
       },
       testAuth () {
         api.get('/secured')

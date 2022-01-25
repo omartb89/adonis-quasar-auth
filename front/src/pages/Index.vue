@@ -1,9 +1,25 @@
 <template>
   <div>
     <q-btn
-      label="Test"
+      label="add"
       flat
-      @click="positive('agency', 'delete')"
+      @click="positive('agency', 'add', 'GET')"
+    /><q-btn
+      label="edit"
+      flat
+      @click="positive('agency', 'edit', 'GET')"
+    /><q-btn
+      label="delete"
+      flat
+      @click="positive('agency', 'delete', 'GET')"
+    /><q-btn
+      label="download"
+      flat
+      @click="positive('agency', 'download', 'GET')"/>
+    <q-btn
+      label="upload"
+      flat
+      @click="positive('agency', 'upload', 'GET')"
     />
   </div>
 </template>

@@ -125,7 +125,7 @@ export default defineComponent({
       logout () {
         api.get('/logout')
           .then((result) => {
-            positive(result.data.user.email, 'logout')
+            positive('user', 'logout', result.data.user.email)
             router.replace('/login')
           })
       }
