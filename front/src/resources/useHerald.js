@@ -99,9 +99,20 @@ export const useHerald = () => {
       html: true
     })
   }
+  function info (message) {
+    Notify.create({
+      message: `<span class="text-white">${message}</span>`,
+      color: 'grey-9',
+      icon: 'info',
+      textColor: 'blue-4',
+      progress: true,
+      html: true
+    })
+  }
   return {
     positive,
     negative,
-    mailer
+    mailer,
+    info
   }
 }

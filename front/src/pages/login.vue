@@ -33,18 +33,22 @@
             v-model="formData.password"
             :lazy-rules="true"
             :rules="[
-              val => val !== '' || 'This field is required'
+              val => val !== '' || 'This field is required',
+              val => securePassword(val) || 'Eso perra'
             ]"
           >
             <template v-slot:prepend>
               <q-icon dense name="vpn_key"></q-icon>
             </template>
             <template v-slot:append>
+              <q-btn :ripple="false" no-caps dense flat label="Forgot Password?" class="text-caption" @click="info('This function is not yet implemented')"></q-btn>
               <q-btn :ripple="false" dense flat :icon="visibility ? 'visibility' : 'visibility_off'" @click="visibility = !visibility"></q-btn>
             </template>
           </q-input>
           <q-input
             dense
+            @focusin="formFocus.visibility2 = true"
+            @focusout="formFocus.visibility2 = false"
             v-if="register"
             class="q-mx-md"
             :type="visibility2 ? 'password' : 'text'"
@@ -54,14 +58,13 @@
               <q-icon name="vpn_key"></q-icon>
             </template>
             <template v-slot:append>
-              <q-btn :ripple="false" dense flat :icon="visibility2 ? 'visibility' : 'visibility_off'" @click="visibility2 = !visibility2"></q-btn>
+              <q-btn
+                :ripple="false" :color="formFocus.visibility2 ? 'primary' : ''" dense flat :icon="visibility2 ? 'visibility' : 'visibility_off'" @click="visibility2 = !visibility2"></q-btn>
             </template>
           </q-input>
-          <div class="row justify-center">
-            <q-checkbox dense label="Register" v-model="register"/>
-          </div>
-          <div class="row justify-center">
-            <q-btn no-caps type="submit" class="bg-dark text-amber q-mt-md" >Accept</q-btn>
+          <div class="row justify-center q-mt-md">
+            <q-btn no-caps type="submit" color="dark" text-color="amber" label="Accept"/>
+            <q-btn no-caps flat color="dark" @click="register = !register" :label="register ? 'Sign in' : 'Sign up'"/>
           </div>
         </q-card-section>
       </q-form>
@@ -80,23 +83,32 @@ import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'Login',
   setup () {
-    const { positive, negative } = useHerald()
-    // eslint-disable-next-line no-unused-vars
+    const { positive, negative, info } = useHerald()
     const { securePassword } = useSentinel()
     const formData = ref({
       email: '',
       password: '',
       password_confirmation: ''
     })
-    const visibility = ref('false')
-    const visibility2 = ref('false')
+    const formFocus = ref({
+      visibility: false,
+      visibility2: false,
+      register: false
+    })
+    const altLabel = ref('Sing up')
+    const visibility = ref(false)
+    const visibility2 = ref(false)
     const register = ref(false)
     const router = useRouter()
     return {
       formData,
+      formFocus,
+      altLabel,
       register,
       visibility,
       visibility2,
+      securePassword,
+      info,
       login () {
         api.post('/login', {
           email: formData.value.email,

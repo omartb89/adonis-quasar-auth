@@ -8,7 +8,7 @@ export const useSentinel = () => {
     return http.test(val)
   } */
   function securePassword (val) {
-    const password = ^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$
+    const password = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
     return password.test(val)
   }
   return {
