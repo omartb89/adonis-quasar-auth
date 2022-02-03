@@ -2,7 +2,7 @@
   <div>
     <q-btn no-caps flat label="Register" class="text-blue absolute-top-right" @click="testAuth"></q-btn>
     <q-card class="absolute-center" style="width: 450px">
-      <q-form greedy @submit="login">
+      <q-form greedy @submit="register ? signIn() : login()">
         <q-card-section>
           <div class="row justify-center items-center">
             <q-avatar size="sm"><q-img src="../assets/adonisjs-original.svg"></q-img></q-avatar>
@@ -19,7 +19,8 @@
             v-model="formData.email"
             :lazy-rules="true"
             :rules="[
-              val => val !== '' || 'This field is required'
+              val => val !== '' || 'This field is required',
+              val => secureMail(val) || 'This is not a valid mail format'
             ]"
           >
             <template v-slot:prepend>
@@ -50,6 +51,11 @@
             @focusin="formFocus.visibility2 = true"
             @focusout="formFocus.visibility2 = false"
             v-if="register"
+            :lazy-rules="register"
+            :rules="!register || [
+              val => val !== '' || 'This field is required',
+              val => securePasswordConfirmation(val, formData.password) || 'Eso perra'
+            ]"
             class="q-mx-md"
             :type="visibility2 ? 'password' : 'text'"
             v-model="formData.password_confirmation"
@@ -59,7 +65,7 @@
             </template>
             <template v-slot:append>
               <q-btn
-                :ripple="false" :color="formFocus.visibility2 ? 'primary' : ''" dense flat :icon="visibility2 ? 'visibility' : 'visibility_off'" @click="visibility2 = !visibility2"></q-btn>
+                :ripple="false" :color="formFocus.visibility2 ? 'dark' : ''" dense flat :icon="visibility2 ? 'visibility' : 'visibility_off'" @click="visibility2 = !visibility2"></q-btn>
             </template>
           </q-input>
           <div class="row justify-center q-mt-md">
@@ -84,7 +90,7 @@ export default defineComponent({
   name: 'Login',
   setup () {
     const { positive, negative, info } = useHerald()
-    const { securePassword } = useSentinel()
+    const { secureMail, securePassword, securePasswordConfirmation } = useSentinel()
     const formData = ref({
       email: '',
       password: '',
@@ -107,7 +113,9 @@ export default defineComponent({
       register,
       visibility,
       visibility2,
+      secureMail,
       securePassword,
+      securePasswordConfirmation,
       info,
       login () {
         api.post('/login', {
@@ -127,6 +135,9 @@ export default defineComponent({
           .catch((error) => {
             negative(error.response.data, 'warning', error.response.status)
           })
+      },
+      signIn () {
+        info('Register, motherfucker')
       },
       testAuth () {
         api.get('/secured')
