@@ -15,7 +15,7 @@
           <q-input
             dense
             class="q-mx-md"
-            type="text"
+            type="email"
             v-model="formData.email"
             :lazy-rules="true"
             :rules="[
@@ -30,12 +30,12 @@
           <q-input
             dense
             class="q-mx-md"
-            :type="visibility ? 'password' : 'text'"
+            :type="visibility ? 'text' : 'password'"
             v-model="formData.password"
             :lazy-rules="true"
             :rules="[
               val => val !== '' || 'This field is required',
-              val => securePassword(val) || 'Eso perra'
+              val => securePassword(val) || 'Password should contain at least eight characters, a capital letter and a digit'
             ]"
           >
             <template v-slot:prepend>
@@ -48,16 +48,14 @@
           </q-input>
           <q-input
             dense
-            @focusin="formFocus.visibility2 = true"
-            @focusout="formFocus.visibility2 = false"
             v-if="register"
             :lazy-rules="register"
             :rules="!register || [
               val => val !== '' || 'This field is required',
-              val => securePasswordConfirmation(val, formData.password) || 'Eso perra'
+              val => securePasswordConfirmation(val, formData.password) || 'Password fields did not matched'
             ]"
             class="q-mx-md"
-            :type="visibility2 ? 'password' : 'text'"
+            :type="visibility2 ? 'text' : 'password'"
             v-model="formData.password_confirmation"
           >
             <template v-slot:prepend>
@@ -65,7 +63,7 @@
             </template>
             <template v-slot:append>
               <q-btn
-                :ripple="false" :color="formFocus.visibility2 ? 'dark' : ''" dense flat :icon="visibility2 ? 'visibility' : 'visibility_off'" @click="visibility2 = !visibility2"></q-btn>
+                :ripple="false"  dense flat :icon="visibility2 ? 'visibility' : 'visibility_off'" @click="visibility2 = !visibility2"></q-btn>
             </template>
           </q-input>
           <div class="row justify-center q-mt-md">
@@ -96,11 +94,6 @@ export default defineComponent({
       password: '',
       password_confirmation: ''
     })
-    const formFocus = ref({
-      visibility: false,
-      visibility2: false,
-      register: false
-    })
     const altLabel = ref('Sing up')
     const visibility = ref(false)
     const visibility2 = ref(false)
@@ -108,7 +101,6 @@ export default defineComponent({
     const router = useRouter()
     return {
       formData,
-      formFocus,
       altLabel,
       register,
       visibility,
@@ -137,7 +129,19 @@ export default defineComponent({
           })
       },
       signIn () {
-        info('Register, motherfucker')
+        api.post('/register', {
+          email: formData.value.email,
+          password: formData.value.password,
+          password_confirmation: formData.value.password_confirmation
+        })
+          .then(() => {
+            positive('user', 'add', formData.value.email)
+          })
+          .catch((error) => {
+            error.response.data.errors.forEach((element) => {
+              negative(element.message, 'error', error.response.status)
+            })
+          })
       },
       testAuth () {
         api.get('/secured')
