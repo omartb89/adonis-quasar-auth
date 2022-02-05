@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/database/migrations/1641988287610_users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/database/migrations/1641988287610_users.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.adonisrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/.adonisrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ace-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/ace-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/env.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +102,10 @@
       <workItem from="1642644661312" duration="1683000" />
       <workItem from="1642734479895" duration="11417000" />
       <workItem from="1643645927522" duration="13740000" />
+      <workItem from="1644028865458" duration="7919000" />
+      <workItem from="1644068162214" duration="1770000" />
+      <workItem from="1644072298248" duration="5844000" />
+      <workItem from="1644100592484" duration="600000" />
     </task>
     <servers />
   </component>
