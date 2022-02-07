@@ -6,10 +6,10 @@
       <change beforePath="$PROJECT_DIR$/api/.adonisrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/.adonisrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/ace-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/ace-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/env.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/mail.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/contracts/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/contracts/mail.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/start/routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

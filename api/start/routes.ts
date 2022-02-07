@@ -19,8 +19,14 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-
 Route.group(() => {
+  Route.get('mailer', 'AuthController.sendMail')
+  Route.get('/verify/:email', async ({ request }) => {
+    if (request.hasValidSignature()) {
+      return 'Marking email as verified'
+    }
+    return 'Signature is missing or URL was tampered.'
+  }).as('verifyEmail')
   Route.get('/', 'AuthController.index')
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
