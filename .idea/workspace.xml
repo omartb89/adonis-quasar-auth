@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.adonisrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/.adonisrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ace-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/ace-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/mail.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/contracts/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/contracts/mail.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/start/routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +46,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="Z:\xampp\htdocs\adonis-quasar-auth\api\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -106,6 +102,7 @@
       <workItem from="1644068162214" duration="1770000" />
       <workItem from="1644072298248" duration="5844000" />
       <workItem from="1644100592484" duration="600000" />
+      <workItem from="1644329527125" duration="10819000" />
     </task>
     <servers />
   </component>

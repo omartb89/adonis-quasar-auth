@@ -23,13 +23,21 @@ export default class AuthController {
     const user= await User.create({...data})
     const signUrl = await Route.makeSignedUrl('verifyEmail',
       {
-        email: user.email
+        email: user.email,
+        prefixUrl: 'http://localhost:333/api'
       },
       {
         expiresIn: '30s'
       }
     )
-    return response.created(signUrl)
+    await Mail.send((message) => {
+      message
+        .from('adonis&quasar-auth.com')
+        .to(user.email)
+        .subject('Welcome Onboard!')
+        .html(signUrl)
+    })
+    return response.created(user)
   }
 
   public async login ({ request, response, auth }: HttpContextContract) {
@@ -48,12 +56,5 @@ export default class AuthController {
       user: user,
       revoked: true
     }
-  }
-  public async sendMail () {
-    await Mail.send((message) => {
-      message.to('omar.torres@get.tur.cu')
-      message.subject('Hello world!')
-    })
-    return 'Did it!'
   }
 }
