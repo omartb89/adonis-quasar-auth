@@ -26,6 +26,12 @@ Route.group(() => {
     }
     return 'Signature is missing or URL was tampered.'
   }).as('verifyEmail')
+  Route.get('/futureMail', async ({ view }) => {
+    return view.render('emails/welcome', {
+      user: 'Romualdo Gómez',
+      url: 'http://localhost:8080/login'
+    })
+  })
   Route.get('/', 'AuthController.index')
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
