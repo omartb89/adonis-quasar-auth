@@ -23,11 +23,10 @@ export default class AuthController {
     const user= await User.create({...data})
     const signUrl = await Route.makeSignedUrl('verifyEmail',
       {
-        email: user.email,
-        prefixUrl: 'http://localhost:333/api'
+        email: user.email
       },
       {
-        expiresIn: '30s'
+        expiresIn: '2m'
       }
     )
     await Mail.send((message) => {
@@ -35,7 +34,10 @@ export default class AuthController {
         .from('adonis&quasar-auth.com')
         .to(user.email)
         .subject('Welcome Onboard!')
-        .html(signUrl)
+        .htmlView('emails/welcome', {
+          user: user.email,
+          url: `http://localhost:3333${signUrl}`
+        })
     })
     return response.created(user)
   }
