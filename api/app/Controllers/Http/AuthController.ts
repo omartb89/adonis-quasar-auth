@@ -41,7 +41,14 @@ export default class AuthController {
     })
     return response.created(user)
   }
-
+  public async verify ({ request, params, response }: HttpContextContract) {
+    if (request.hasValidSignature()) {
+      const user = await User.findByOrFail('email', params.email)
+      user.verified = true
+      user.save()
+      return response.ok(`The account ${ params.email } has been verified`)
+    } else return 'Signature is missing or URL was tampered.'
+  }
   public async login ({ request, response, auth }: HttpContextContract) {
     const email = request.input('email')
     const password = request.input('password')
@@ -51,6 +58,7 @@ export default class AuthController {
       return response.badRequest('Invalid credentials')
     }
   }
+
   public async logout ({ auth }: HttpContextContract) {
     const user = auth.user
     await auth.use('api').revoke()

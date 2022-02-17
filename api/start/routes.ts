@@ -20,12 +20,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 Route.group(() => {
-  Route.get('/verify/:email', async ({ request }) => {
-    if (request.hasValidSignature()) {
-      return 'Marking email as verified'
-    }
-    return 'Signature is missing or URL was tampered.'
-  }).as('verifyEmail')
+  Route.get('/verify/:email', 'AuthController.verify'
+  ).as('verifyEmail')
   Route.get('/futureMail', async ({ view }) => {
     return view.render('emails/welcome', {
       user: 'Romualdo Gómez',

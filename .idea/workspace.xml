@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/resources/views/emails/welcome.edge" beforeDir="false" afterPath="$PROJECT_DIR$/api/resources/views/emails/welcome.edge" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/start/routes.ts" afterDir="false" />
     </list>
@@ -107,6 +108,7 @@
       <workItem from="1644599685560" duration="619000" />
       <workItem from="1644872856003" duration="2099000" />
       <workItem from="1644886743687" duration="7607000" />
+      <workItem from="1645000987869" duration="13012000" />
     </task>
     <servers />
   </component>
