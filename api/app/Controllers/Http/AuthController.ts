@@ -13,7 +13,7 @@ export default class AuthController {
     const validations = await schema.create({
       email: await schema.string({}, [
         rules.email(),
-        rules.unique({ table: 'users', column: 'email'})
+        rules.unique({ table: 'users', column: 'email'}),
       ]),
       password: await schema.string({}, [
         rules.confirmed()
