@@ -87,6 +87,21 @@ export const useHerald = () => {
       html: true
     })
   }
+  function unverified (to, method) {
+    Notify.create({
+      message: `<span class="text-white">
+                El usuario <span class="text-lime-2 text-bold">${to}</span> no esta verificado. Desea enviar correo de notificación?
+                </span>`,
+      color: 'grey-9',
+      icon: 'mail',
+      textColor: 'lime-4',
+      progress: true,
+      html: true,
+      actions: [
+        { label: 'Enviar', color: 'yellow', handler: () => method }
+      ]
+    })
+  }
   function mailer (to) {
     Notify.create({
       message: `<span class="text-white">
@@ -113,6 +128,7 @@ export const useHerald = () => {
     positive,
     negative,
     mailer,
-    info
+    info,
+    unverified
   }
 }

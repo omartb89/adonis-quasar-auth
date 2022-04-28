@@ -87,7 +87,7 @@ import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'Login',
   setup () {
-    const { positive, negative, info } = useHerald()
+    const { positive, negative, info, unverified } = useHerald()
     const { secureMail, securePassword, securePasswordConfirmation } = useSentinel()
     const formData = ref({
       email: '',
@@ -109,6 +109,7 @@ export default defineComponent({
       securePassword,
       securePasswordConfirmation,
       info,
+      unverified,
       login () {
         api.post('/login', {
           email: formData.value.email,
@@ -116,6 +117,10 @@ export default defineComponent({
         })
           .then((response) => {
             const data = response.data
+            if (!data.verified) {
+              unverified(formData.value.email)
+              return
+            }
             SessionStorage.set('user', {
               email: formData.value.email,
               token: data.token

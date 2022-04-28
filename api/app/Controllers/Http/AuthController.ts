@@ -21,6 +21,10 @@ export default class AuthController {
     })
     const data = await request.validate({schema: validations})
     const user= await User.create({...data})
+    await this.mailAssistant(user)
+    return response.created(user)
+  }
+  public async mailAssistant (user) {
     const signUrl = await Route.makeSignedUrl('verifyEmail',
       {
         email: user.email
@@ -39,7 +43,6 @@ export default class AuthController {
           url: `http://localhost:3333${signUrl}`
         })
     })
-    return response.created(user)
   }
   public async verify ({ request, params, response }: HttpContextContract) {
     if (request.hasValidSignature()) {
