@@ -1,5 +1,6 @@
 import { Notify } from 'quasar'
 import { ref } from 'vue'
+import { api } from 'boot/axios'
 export const useHerald = () => {
   const actionClass = ref({
     login: {
@@ -87,7 +88,7 @@ export const useHerald = () => {
       html: true
     })
   }
-  function unverified (to, method) {
+  function unverified (to) {
     Notify.create({
       message: `<span class="text-white">
                 El usuario <span class="text-lime-2 text-bold">${to}</span> no esta verificado. Desea enviar correo de notificación?
@@ -98,7 +99,7 @@ export const useHerald = () => {
       progress: true,
       html: true,
       actions: [
-        { label: 'Enviar', color: 'yellow', handler: () => method }
+        { label: 'Enviar', color: 'yellow', handler: () => userVerifier({ email: to }) }
       ]
     })
   }
@@ -123,6 +124,13 @@ export const useHerald = () => {
       progress: true,
       html: true
     })
+  }
+  function userVerifier (userMail) {
+    api.post('/extraVerification', userMail)
+      .then((response) => {
+        const data = response.data
+        mailer(data)
+      })
   }
   return {
     positive,

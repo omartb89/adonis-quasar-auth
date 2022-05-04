@@ -21,25 +21,30 @@ export default class AuthController {
     })
     const data = await request.validate({schema: validations})
     const user= await User.create({...data})
-    await this.mailAssistant(user)
+    await this.mailAssistant(user.email)
     return response.created(user)
   }
-  public async mailAssistant (user) {
+  public async extraVerification ({request, response}) {
+    const email = request.input('email')
+    await this.mailAssistant(email)
+    return response.ok(email)
+  }
+  public async mailAssistant (email) {
     const signUrl = await Route.makeSignedUrl('verifyEmail',
       {
-        email: user.email
+        email: email
       },
       {
         expiresIn: '2m'
       }
     )
-    await Mail.send((message) => {
+    return await Mail.send((message) => {
       message
         .from('adonis&quasar-auth.com')
-        .to(user.email)
+        .to(email)
         .subject('Welcome Onboard!')
         .htmlView('emails/welcome', {
-          user: user.email,
+          user: email,
           url: `http://localhost:3333${signUrl}`
         })
     })

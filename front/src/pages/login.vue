@@ -1,6 +1,5 @@
 <template>
   <div>
-    <q-btn no-caps flat label="Register" class="text-blue absolute-top-right" @click="testAuth"></q-btn>
     <q-card class="absolute-center" style="width: 450px">
       <q-form greedy @submit="register ? signIn() : login()">
         <q-card-section>
@@ -87,7 +86,7 @@ import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'Login',
   setup () {
-    const { positive, negative, info, unverified } = useHerald()
+    const { positive, negative, info, mailer, unverified } = useHerald()
     const { secureMail, securePassword, securePasswordConfirmation } = useSentinel()
     const formData = ref({
       email: '',
@@ -109,6 +108,7 @@ export default defineComponent({
       securePassword,
       securePasswordConfirmation,
       info,
+      mailer,
       unverified,
       login () {
         api.post('/login', {
@@ -118,16 +118,18 @@ export default defineComponent({
           .then((response) => {
             const data = response.data
             if (!data.verified) {
-              unverified(formData.value.email)
-              return
+              unverified(formData.value.email, {
+                email: formData.value.email
+              })
+            } else {
+              SessionStorage.set('user', {
+                email: formData.value.email,
+                token: data.token
+              })
+              SessionStorage.set('isAuthenticated', true)
+              router.replace('/')
+              positive('user', 'login', formData.value.email)
             }
-            SessionStorage.set('user', {
-              email: formData.value.email,
-              token: data.token
-            })
-            SessionStorage.set('isAuthenticated', true)
-            router.replace('/')
-            positive('user', 'login', formData.value.email)
           })
           .catch((error) => {
             negative(error.response.data, 'warning', error.response.status)
@@ -141,18 +143,9 @@ export default defineComponent({
         })
           .then(() => {
             positive('user', 'add', formData.value.email)
+            setTimeout(mailer, 5000, formData.value.email)
           })
           .catch((error) => {
-            error.response.data.errors.forEach((element) => {
-              negative(element.message, 'error', error.response.status)
-            })
-          })
-      },
-      testAuth () {
-        api.get('/secured')
-          .then((result) => {
-            console.log(result)
-          }).catch((error) => {
             error.response.data.errors.forEach((element) => {
               negative(element.message, 'error', error.response.status)
             })
