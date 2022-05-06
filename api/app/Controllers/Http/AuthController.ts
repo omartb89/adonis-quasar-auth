@@ -69,7 +69,7 @@ export default class AuthController {
 
     // Verify password
     if (!user.verified) {
-      return false
+      return response.conflict('Unverified user')
     }
     if (!(await Hash.verify(user.password, password))) {
       return response.badRequest('Invalid credentials')
