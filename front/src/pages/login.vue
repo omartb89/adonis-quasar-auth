@@ -117,7 +117,8 @@ export default defineComponent({
         })
           .then((response) => {
             const data = response.data
-            if (!data.verified) {
+            console.log(data)
+            if (!data) {
               unverified(formData.value.email, {
                 email: formData.value.email
               })

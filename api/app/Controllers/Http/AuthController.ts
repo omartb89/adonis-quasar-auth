@@ -3,6 +3,7 @@ import User from 'App/Models/User'
 import {rules, schema} from '@ioc:Adonis/Core/Validator'
 import Route from '@ioc:Adonis/Core/Route'
 import Mail from '@ioc:Adonis/Addons/Mail'
+import Hash from "@ioc:Adonis/Core/Hash";
 
 export default class AuthController {
   public async index () {
@@ -60,11 +61,25 @@ export default class AuthController {
   public async login ({ request, response, auth }: HttpContextContract) {
     const email = request.input('email')
     const password = request.input('password')
-    try {
+    // Lookup user manually
+    const user = await User
+      .query()
+      .where('email', email)
+      .firstOrFail()
+
+    // Verify password
+    if (!user.verified) {
+      return false
+    }
+    if (!(await Hash.verify(user.password, password))) {
+      return response.badRequest('Invalid credentials')
+    }
+    return await auth.use('api').generate(user)
+    /*try {
       return await auth.use('api').attempt(email, password)
     } catch {
       return response.badRequest('Invalid credentials')
-    }
+    }*/
   }
 
   public async logout ({ auth }: HttpContextContract) {
