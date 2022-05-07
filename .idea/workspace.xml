@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Controllers/Http/AuthController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/resources/views/emails/welcome.edge" beforeDir="false" afterPath="$PROJECT_DIR$/api/resources/views/emails/welcome.edge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/start/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/quasar.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/quasar.conf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/resources/useHerald.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/resources/useHerald.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -41,7 +41,7 @@
               <q-icon dense name="vpn_key"></q-icon>
             </template>
             <template v-slot:append>
-              <q-btn :ripple="false" no-caps dense flat label="Forgot Password?" class="text-caption" @click="info('This function is not yet implemented')"></q-btn>
+              <q-btn :ripple="false" no-caps dense flat label="Forgot Password?" class="text-caption" @click="forgotten"></q-btn>
               <q-btn :ripple="false" dense flat :icon="visibility ? 'visibility' : 'visibility_off'" @click="visibility = !visibility"></q-btn>
             </template>
           </q-input>
@@ -79,8 +79,10 @@
 import { defineComponent, ref } from 'vue'
 import { useHerald } from 'src/resources/useHerald'
 import { useSentinel } from 'src/resources/useSentinel'
+import DittoDialog from 'components/DittoDialog'
+
 import { api } from 'boot/axios'
-import { SessionStorage } from 'quasar'
+import { SessionStorage, Dialog } from 'quasar'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
@@ -148,6 +150,11 @@ export default defineComponent({
               negative(element.message, 'error', error.response.status)
             })
           })
+      },
+      forgotten () {
+        Dialog.create({
+          component: DittoDialog
+        })
       }
     }
   }
