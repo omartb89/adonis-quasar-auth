@@ -99,7 +99,7 @@ export const useHerald = () => {
       progress: true,
       html: true,
       actions: [
-        { label: 'Enviar', color: 'yellow', handler: () => userVerifier({ email: to }) }
+        { label: 'Enviar', color: 'warning', handler: () => userVerifier({ email: to }) }
       ]
     })
   }

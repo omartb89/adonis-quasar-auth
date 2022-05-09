@@ -117,23 +117,20 @@ export default defineComponent({
         })
           .then((response) => {
             const data = response.data
-            console.log(data)
-            if (data === 'Unverified user') {
+            SessionStorage.set('user', {
+              email: formData.value.email,
+              token: data.token
+            })
+            SessionStorage.set('isAuthenticated', true)
+            router.replace('/')
+            positive('user', 'login', formData.value.email)
+          })
+          .catch((error) => {
+            if (error.response.data === 'Unverified user') {
               unverified(formData.value.email, {
                 email: formData.value.email
               })
-            } else {
-              SessionStorage.set('user', {
-                email: formData.value.email,
-                token: data.token
-              })
-              SessionStorage.set('isAuthenticated', true)
-              router.replace('/')
-              positive('user', 'login', formData.value.email)
-            }
-          })
-          .catch((error) => {
-            negative(error.response.data, 'warning', error.response.status)
+            } else negative(error.response.data, 'warning', error.response.status)
           })
       },
       signIn () {

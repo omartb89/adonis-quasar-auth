@@ -23,23 +23,12 @@ Route.group(() => {
   Route.post('/extraVerification', 'AuthController.extraVerification')
   Route.get('/verify/:email', 'AuthController.verify'
   ).as('verifyEmail')
-  Route.get('/futureMail', async ({ view }) => {
-    return view.render('emails/welcome', {
-      user: 'Romualdo Gómez',
-      url: 'http://localhost:8080/login'
-    })
-  })
+  Route.post('/forgottenPassword', 'AuthController.forgottenPassword')
+  Route.get('/generate/:email', 'AuthController.generatePassword'
+  ).as('generatePassword')
   Route.get('/', 'AuthController.index')
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
   Route.get('/logout', 'AuthController.logout').middleware('auth')
-  Route.get('/secured', async () => {
-    return {
-      id: 1,
-      account: 'CodeThirsty',
-      type: 'secured',
-      gender: true
-    }
-  }).middleware('auth')
 }).prefix('api')
 
