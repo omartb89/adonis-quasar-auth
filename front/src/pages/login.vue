@@ -79,6 +79,7 @@
 import { defineComponent, ref } from 'vue'
 import { useHerald } from 'src/resources/useHerald'
 import { useSentinel } from 'src/resources/useSentinel'
+import { useSpaceGem } from 'src/resources/useSpaceGem'
 import DittoDialog from 'components/DittoDialog'
 
 import { api } from 'boot/axios'
@@ -90,6 +91,7 @@ export default defineComponent({
   setup () {
     const { positive, negative, info, mailer, unverified } = useHerald()
     const { secureMail, securePassword, securePasswordConfirmation } = useSentinel()
+    const { smallScreen, extraSmallScreen } = useSpaceGem()
     const formData = ref({
       email: '',
       password: '',
@@ -112,6 +114,8 @@ export default defineComponent({
       info,
       mailer,
       unverified,
+      smallScreen,
+      extraSmallScreen,
       login () {
         api.post('/login', {
           email: formData.value.email,
@@ -153,7 +157,16 @@ export default defineComponent({
       },
       forgotten () {
         Dialog.create({
-          component: DittoDialog
+          component: DittoDialog,
+          componentProps: {
+            title: 'Forgotten password',
+            transform: 'execute',
+            body: 'If you have forgotten your password, please submit your email and you will be provided with a new one ',
+            extra: true,
+            extraLabel: 'Email',
+            icon: 'vpn_key',
+            color: 'lime-9'
+          }
         })
       }
     }

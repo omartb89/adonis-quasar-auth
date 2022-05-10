@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edd4483d-9bce-449c-bf59-1a0244c59d39" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/quasar.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/quasar.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/DittoDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/DittoDialog.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +45,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="Z:\xampp\htdocs\adonis-quasar-auth\api\node_modules\typescript\lib" />
