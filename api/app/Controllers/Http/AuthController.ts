@@ -5,6 +5,7 @@ import Route from '@ioc:Adonis/Core/Route'
 import Mail from '@ioc:Adonis/Addons/Mail'
 import Hash from "@ioc:Adonis/Core/Hash"
 import Env from '@ioc:Adonis/Core/Env'
+import RandExp from 'randexp'
 
 export default class AuthController {
   public async index () {
@@ -95,9 +96,11 @@ export default class AuthController {
   public async generatePassword ({ request, params, response }: HttpContextContract) {
     if (request.hasValidSignature()) {
       const user = await User.findByOrFail('email', params.email)
-      user.password = 'Pikachu64'
+      const generator = new RandExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10}$/);
+      const genPassword = generator.gen();
+      user.password = genPassword
       user.save()
-      return response.ok(`Your password is now Pikachu64`)
+      return response.ok(`Your password is now ${genPassword}`)
     } else {
       return 'Signature is missing or tampered'
     }
