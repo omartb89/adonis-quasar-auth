@@ -107,8 +107,15 @@ export default class AuthController {
   }
   public async forgottenPassword ({request, response}: HttpContextContract) {
     const email = request.input('email')
-    await this.mailAssistant(email, "Seems like you have forgotten your password. Please, click the button bellow in order to generate a new one", 'generatePassword')
-    return response.ok(email)
+    const user = await User
+      .query()
+      .where('email', email)
+    if(user.length > 0) {
+      await this.mailAssistant(email, "Seems like you have forgotten your password. Please, click the button bellow in order to generate a new one", 'generatePassword')
+      return response.ok(email)
+    } else {
+      return response.notFound('This')
+    }
   }
 
 

@@ -66,7 +66,7 @@
               :subtitle="entry.subtitle"
               :icon="entry.icon"
               :color="entry.color"
-              v-show="theBanisher(entry.field)"
+              v-show="banisher(entry.field)"
               class="q-ml-md"
             >
               <div v-if="typeof (entry.field) === 'string' && typeof (body[entry.field]) !== 'object'">
@@ -92,7 +92,7 @@
           </q-timeline>
         </div>
       <!-- buttons example -->
-      <q-form @submit="transform === 'execute' ? onOKClick() : hide()" dense greedy>
+      <q-form @submit="transform === 'execute' ? onOKClick() : onDialogHide()" dense greedy>
         <div
           v-if="extra"
           class="q-my-sm q-mx-md">
@@ -199,14 +199,14 @@ export default defineComponent({
       onOKClick () {
         // on OK, it is REQUIRED to
         // call onDialogOK (with optional payload)
-        onDialogOK()
+        onDialogOK({ emitter })
         // or with payload: onDialogOK({ ... })
         // ...and it will also hide the dialog automatically
       },
 
       // we can passthrough onDialogCancel directly
       onCancelClick: onDialogCancel,
-      theBanisher (field) {
+      banisher (field) {
         if (typeof (field) === 'string') {
           return (this.body[field] && this.body[field] !== '')
         } else {
